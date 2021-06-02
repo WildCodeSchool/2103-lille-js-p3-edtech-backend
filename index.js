@@ -27,10 +27,22 @@ app.get('/texts', async (req, res) => {
 });
 
 app.get('/images', async (req, res) => {
-  connection.query('SELECT * FROM images', (err, results) => {
+  connection.query('SELECT * FROM images', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
+      const results = {};
+      for (let i = 0; i < rows.length; i += 1) {
+        const row = rows[i];
+        const myKey = row.tagname;
+        const myValue = {
+          src: row.img_src,
+          alt: row.img_alt,
+        };
+        results[myKey] = myValue;
+      }
+
+      console.log(results);
       res.status(200).json(results);
     }
   });
