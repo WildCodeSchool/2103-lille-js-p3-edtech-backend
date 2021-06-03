@@ -41,8 +41,6 @@ app.get('/images', async (req, res) => {
         };
         results[myKey] = myValue;
       }
-
-      console.log(results);
       res.status(200).json(results);
     }
   });
