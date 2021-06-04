@@ -46,6 +46,16 @@ app.get('/images', async (req, res) => {
   });
 });
 
+app.get('/members', async (req, res) => {
+  connection.query('SELECT * FROM members ORDER BY RAND()', (err, rows) => {
+    if (err) {
+      res.status(500).send('Error retrieving data from database !');
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
 app.use('/', (req, res) => {
   res.status(404).send('Route not found! ');
 });
