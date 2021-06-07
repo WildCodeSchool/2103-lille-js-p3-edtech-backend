@@ -46,6 +46,26 @@ app.get('/images', async (req, res) => {
   });
 });
 
+app.get('/sliders', async (req, res) => {
+  connection.query('SELECT * FROM sliders', (err, rows) => {
+    if (err) {
+      res.status(500).send('Error retrieving data from database !');
+    } else {
+      const results = {};
+      for (let i = 0; i < rows.length; i += 1) {
+        const row = rows[i];
+        const myKey = row.title;
+        const myValue = {
+          src: row.img_src,
+          alt: row.img_alt,
+        };
+        results[myKey] = myValue;
+      }
+      res.status(200).json(results);
+    }
+  });
+});
+
 app.use('/', (req, res) => {
   res.status(404).send('Route not found! ');
 });
