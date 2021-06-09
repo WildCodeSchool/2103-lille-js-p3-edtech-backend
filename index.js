@@ -47,11 +47,28 @@ app.get('/images', async (req, res) => {
 });
 
 app.get('/slider', async (req, res) => {
-  connection.query('SELECT * FROM sliders', (err, rows) => {
+  connection.query('SELECT * FROM slider', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
       res.status(200).json(rows);
+    }
+  });
+});
+
+app.get('/settings_carousel', async (req, res) => {
+  connection.query('SELECT * FROM settings_carousel', (err, rows) => {
+    if (err) {
+      res.status(500).send('Error retrieving data from database !');
+    } else {
+      const results = {};
+      for (let i = 0; i < rows.length; i += 1) {
+        const row = rows[i];
+        const myKey = row.tagname;
+        const myValue = row.value;
+        results[myKey] = myValue;
+      }
+      res.status(200).json(results);
     }
   });
 });
