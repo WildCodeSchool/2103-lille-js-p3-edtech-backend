@@ -46,7 +46,7 @@ app.get('/images', async (req, res) => {
   });
 });
 
-app.get('/sliders', async (req, res) => {
+app.get('/slider', async (req, res) => {
   connection.query('SELECT * FROM sliders', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
