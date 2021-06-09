@@ -37,8 +37,8 @@ app.get('/images', async (req, res) => {
         const row = rows[i];
         const myKey = row.tagname;
         const myValue = {
-          src: row.img_src,
-          alt: row.img_alt,
+          src: row.src,
+          alt: row.alt,
         };
         results[myKey] = myValue;
       }
