@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: edtech
 -- ------------------------------------------------------
--- Server version	8.0.25-0ubuntu0.20.04.1
+-- Server version	8.0.25-0ubuntu0.21.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `externelinks`;
 CREATE TABLE `externelinks` (
   `id` int NOT NULL,
   `tagname` varchar(64) NOT NULL,
-  `link_to` varchar(128) NOT NULL,
+  `link_to` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +36,7 @@ CREATE TABLE `externelinks` (
 
 LOCK TABLES `externelinks` WRITE;
 /*!40000 ALTER TABLE `externelinks` DISABLE KEYS */;
-INSERT INTO `externelinks` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf');
+INSERT INTO `externelinks` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf'),(6,'link_map','https://livemap.getwemap.com/embed.html?emmid=15883&iframeid=ed23008b-869a-482f-8f70-21c1041b88ed&parentLocation=https%3A%2F%2Flivemap.getwemap.com%2Fembed.html&parentOrigin=https%3A%2F%2Flivemap.getwemap.com&token=CQW96JV4PEI60Z56A7MBB7G2X#/search@48.8526893,2.3282879,5.00');
 /*!40000 ALTER TABLE `externelinks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-05 10:53:05
+-- Dump completed on 2021-06-09 13:59:03
