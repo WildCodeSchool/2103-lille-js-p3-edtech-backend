@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: edtech
 -- ------------------------------------------------------
--- Server version	8.0.25-0ubuntu0.20.04.1
+-- Server version	8.0.23
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -75,7 +75,6 @@ DROP TABLE IF EXISTS `members`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `members` (
   `id` int NOT NULL,
-  `title` varchar(64) NOT NULL,
   `name` varchar(64) NOT NULL,
   `logo_src` varchar(128) DEFAULT NULL,
   `logo_alt` varchar(128) DEFAULT NULL,
@@ -90,6 +89,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` VALUES (1,'tabuleo','/img/members/Tabuleo.png','tabuleo','https://www.tabuleo.com/'),(2,'orientoi','/img/members/Orientoi.jpg','orientoi','https://www.orientoi.fr/'),(3,'wild_code_school','/img/members/WildCodeSchool.png','wildcodeschool','https://www.wildcodeschool.com/fr-FR'),(4,'agence_dad','/img/members/Agencedad.jpg','agencedad','https://www.dad-agence.fr/'),(5,'cantoo_scribe','/img/members/CantooScribe.png','cantooscribe','https://www.cantoo.fr/'),(6,'edhec','/img/members/EDHEC.jpg','edhec','https://www.edhec.edu/fr');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-05 10:53:05
+-- Dump completed on 2021-06-08 16:41:46
