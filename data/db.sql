@@ -16,28 +16,56 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `externelinks`
+-- Table structure for table `actus`
 --
 
-DROP TABLE IF EXISTS `externelinks`;
+DROP TABLE IF EXISTS `actus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `externelinks` (
-  `id` int NOT NULL,
-  `tagname` varchar(64) NOT NULL,
-  `link_to` varchar(128) NOT NULL,
+CREATE TABLE `actus` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
+  `img_src` varchar(128) NOT NULL,
+  `img_alt` varchar(64) DEFAULT NULL,
+  `subtext` varchar(64) DEFAULT NULL,
+  `link` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `externelinks`
+-- Dumping data for table `actus`
 --
 
-LOCK TABLES `externelinks` WRITE;
-/*!40000 ALTER TABLE `externelinks` DISABLE KEYS */;
-INSERT INTO `externelinks` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf');
-/*!40000 ALTER TABLE `externelinks` ENABLE KEYS */;
+LOCK TABLES `actus` WRITE;
+/*!40000 ALTER TABLE `actus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `actus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `external_links`
+--
+
+DROP TABLE IF EXISTS `external_links`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `external_links` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tagname` varchar(64) NOT NULL,
+  `link_to` varchar(512) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tagname_UNIQUE` (`tagname`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `external_links`
+--
+
+LOCK TABLES `external_links` WRITE;
+/*!40000 ALTER TABLE `external_links` DISABLE KEYS */;
+INSERT INTO `external_links` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf');
+/*!40000 ALTER TABLE `external_links` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -48,12 +76,13 @@ DROP TABLE IF EXISTS `images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `images` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `img_src` varchar(128) NOT NULL,
-  `img_alt` varchar(128) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `src` varchar(128) NOT NULL,
+  `alt` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tagname_UNIQUE` (`tagname`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,14 +103,13 @@ DROP TABLE IF EXISTS `members`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `members` (
-  `id` int NOT NULL,
-  `title` varchar(64) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `logo_src` varchar(128) DEFAULT NULL,
-  `logo_alt` varchar(128) DEFAULT NULL,
+  `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,6 +118,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` VALUES (1,'tabuleo','/img/members/Tabuleo.png','tabuleo','https://www.tabuleo.com/'),(2,'orientoi','/img/members/Orientoi.jpg','orientoi','https://www.orientoi.fr/'),(3,'wild_code_school','/img/members/WildCodeSchool.png','wildcodeschool','https://www.wildcodeschool.com/fr-FR'),(4,'agence_dad','/img/members/Agencedad.jpg','agencedad','https://www.dad-agence.fr/'),(5,'cantoo_scribe','/img/members/CantooScribe.png','cantooscribe','https://www.cantoo.fr/'),(6,'edhec','/img/members/EDHEC.jpg','edhec','https://www.edhec.edu/fr');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,14 +130,13 @@ DROP TABLE IF EXISTS `partners`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `partners` (
-  `id` int NOT NULL,
-  `title` varchar(64) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `logo_src` varchar(128) NOT NULL,
-  `logo_alt` varchar(128) NOT NULL,
-  `link` varchar(128) NOT NULL,
+  `logo_alt` varchar(64) DEFAULT NULL,
+  `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,6 +149,32 @@ LOCK TABLES `partners` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `settings_carousel`
+--
+
+DROP TABLE IF EXISTS `settings_carousel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `settings_carousel` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tagname` varchar(64) NOT NULL,
+  `value` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tagname_UNIQUE` (`tagname`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `settings_carousel`
+--
+
+LOCK TABLES `settings_carousel` WRITE;
+/*!40000 ALTER TABLE `settings_carousel` DISABLE KEYS */;
+INSERT INTO `settings_carousel` VALUES (1,'slider_duration','3500'),(2,'slider_transitionDuration','500'),(3,'slider_infinite','true'),(4,'slider_indicators','true');
+/*!40000 ALTER TABLE `settings_carousel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `slider`
 --
 
@@ -128,13 +182,13 @@ DROP TABLE IF EXISTS `slider`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `slider` (
-  `id` int NOT NULL,
-  `title` varchar(32) DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
   `img_src` varchar(128) NOT NULL,
-  `img_alt` varchar(128) NOT NULL,
-  `text` varchar(64) DEFAULT NULL,
+  `img_alt` varchar(64) DEFAULT NULL,
+  `subtext` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,6 +197,7 @@ CREATE TABLE `slider` (
 
 LOCK TABLES `slider` WRITE;
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
+INSERT INTO `slider` VALUES (1,'Lorem ipsum','/img/slider/bureau1.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(2,'Lorem ipsum','/img/slider/bureau2.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(3,'Lorem ipsum','/img/slider/bureau3.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,10 +211,10 @@ DROP TABLE IF EXISTS `texts`;
 CREATE TABLE `texts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `fr` text NOT NULL,
+  `fr` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,32 +226,6 @@ LOCK TABLES `texts` WRITE;
 INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `lastname` varchar(64) NOT NULL,
-  `firstname` varchar(64) NOT NULL,
-  `email` varchar(64) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -207,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-05 10:53:05
+-- Dump completed on 2021-06-09 12:33:49
