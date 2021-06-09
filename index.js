@@ -9,6 +9,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 
 app.use(cors());
+
 app.get('/texts', async (req, res) => {
   connection.query('SELECT * FROM texts', (err, rows) => {
     if (err) {
@@ -36,8 +37,8 @@ app.get('/images', async (req, res) => {
         const row = rows[i];
         const myKey = row.tagname;
         const myValue = {
-          src: row.img_src,
-          alt: row.img_alt,
+          src: row.src,
+          alt: row.alt,
         };
         results[myKey] = myValue;
       }
@@ -48,6 +49,16 @@ app.get('/images', async (req, res) => {
 
 app.get('/slider', async (req, res) => {
   connection.query('SELECT * FROM slider', (err, rows) => {
+  if (err) {
+      res.status(500).send('Error retrieving data from database !');
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
+app.get('/members', async (req, res) => {
+  connection.query('SELECT * FROM members ORDER BY RAND()', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
@@ -58,7 +69,7 @@ app.get('/slider', async (req, res) => {
 
 app.get('/settings_carousel', async (req, res) => {
   connection.query('SELECT * FROM settings_carousel', (err, rows) => {
-    if (err) {
+if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
       const results = {};
@@ -66,6 +77,22 @@ app.get('/settings_carousel', async (req, res) => {
         const row = rows[i];
         const myKey = row.tagname;
         const myValue = row.value;
+        results[myKey] = myValue;
+      }
+      res.status(200).json(results);
+    }
+  });
+});
+app.get('/externelinks', async (req, res) => {
+  connection.query('SELECT * FROM externelinks', (err, rows) => {
+    if (err) {
+      res.status(500).send('Error retrieving data from database !');
+    } else {
+      const results = {};
+      for (let i = 0; i < rows.length; i += 1) {
+        const row = rows[i];
+        const myKey = row.tagname;
+        const myValue = row.link_to;
         results[myKey] = myValue;
       }
       res.status(200).json(results);
