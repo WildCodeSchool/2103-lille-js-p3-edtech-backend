@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: edtech
+-- Host: localhost    Database: edtech
 -- ------------------------------------------------------
 -- Server version	8.0.25-0ubuntu0.20.04.1
 
@@ -96,29 +96,32 @@ LOCK TABLES `partners` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `slider`
+-- Table structure for table `sliders`
 --
 
-DROP TABLE IF EXISTS `slider`;
+DROP TABLE IF EXISTS `sliders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `slider` (
+CREATE TABLE `sliders` (
   `id` int NOT NULL,
-  `title` varchar(32) DEFAULT NULL,
+  `title` varchar(32) NOT NULL,
   `img_src` varchar(128) NOT NULL,
   `img_alt` varchar(128) NOT NULL,
-  `text` varchar(64) DEFAULT NULL,
+  `text` varchar(256) DEFAULT NULL,
+  `tagname` varchar(45) DEFAULT NULL,
+  `properties` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `slider`
+-- Dumping data for table `sliders`
 --
 
-LOCK TABLES `slider` WRITE;
-/*!40000 ALTER TABLE `slider` DISABLE KEYS */;
-/*!40000 ALTER TABLE `slider` ENABLE KEYS */;
+LOCK TABLES `sliders` WRITE;
+/*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
+INSERT INTO `sliders` VALUES (1,'Lorem ipsum','/img/slider/bureau1.jpeg','slide','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ','',''),(2,'Lorem ipsum','/img/slider/bureau2.jpeg','slide','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ','',''),(3,'Lorem ipsum','/img/slider/bureau3.jpeg','slide','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ','','');
+/*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -182,4 +185,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-02 16:44:35
+-- Dump completed on 2021-06-09  9:38:53

@@ -51,17 +51,7 @@ app.get('/sliders', async (req, res) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.title;
-        const myValue = {
-          src: row.img_src,
-          alt: row.img_alt,
-        };
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
+      res.status(200).json(rows);
     }
   });
 });
