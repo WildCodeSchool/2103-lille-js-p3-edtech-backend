@@ -43,13 +43,13 @@ LOCK TABLES `actus` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `externelinks`
+-- Table structure for table `external_links`
 --
 
-DROP TABLE IF EXISTS `externelinks`;
+DROP TABLE IF EXISTS `external_links`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `externelinks` (
+CREATE TABLE `external_links` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
   `link_to` varchar(512) NOT NULL,
@@ -59,13 +59,13 @@ CREATE TABLE `externelinks` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `externelinks`
+-- Dumping data for table `external_links`
 --
 
-LOCK TABLES `externelinks` WRITE;
-/*!40000 ALTER TABLE `externelinks` DISABLE KEYS */;
-INSERT INTO `externelinks` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf');
-/*!40000 ALTER TABLE `externelinks` ENABLE KEYS */;
+LOCK TABLES `external_links` WRITE;
+/*!40000 ALTER TABLE `external_links` DISABLE KEYS */;
+INSERT INTO `external_links` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf');
+/*!40000 ALTER TABLE `external_links` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -104,10 +104,10 @@ DROP TABLE IF EXISTS `members`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `members` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(64) NOT NULL,
   `name` varchar(64) NOT NULL,
   `logo_src` varchar(128) DEFAULT NULL,
-  `logo_alt` varchar(45) DEFAULT NULL,
+  `logo_alt` varchar(64) DEFAULT NULL,
+  `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -131,7 +131,6 @@ DROP TABLE IF EXISTS `partners`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `partners` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(64) NOT NULL,
   `name` varchar(64) NOT NULL,
   `logo_src` varchar(128) NOT NULL,
   `logo_alt` varchar(64) DEFAULT NULL,
@@ -147,6 +146,32 @@ CREATE TABLE `partners` (
 LOCK TABLES `partners` WRITE;
 /*!40000 ALTER TABLE `partners` DISABLE KEYS */;
 /*!40000 ALTER TABLE `partners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `settings_carousel`
+--
+
+DROP TABLE IF EXISTS `settings_carousel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `settings_carousel` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tagname` varchar(64) NOT NULL,
+  `value` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tagname_UNIQUE` (`tagname`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `settings_carousel`
+--
+
+LOCK TABLES `settings_carousel` WRITE;
+/*!40000 ALTER TABLE `settings_carousel` DISABLE KEYS */;
+INSERT INTO `settings_carousel` VALUES (1,'slider_duration','3500'),(2,'slider_transitionDuration','500'),(3,'slider_infinite','true'),(4,'slider_indicators','true');
+/*!40000 ALTER TABLE `settings_carousel` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -172,7 +197,7 @@ CREATE TABLE `slider` (
 
 LOCK TABLES `slider` WRITE;
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
-INSERT INTO `slider` VALUES (1,'Lorem ipsum','/img/slider/bureau1.jpeg','slide','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '),(2,'Lorem ipsum','/img/slider/bureau2.jpeg','slide','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '),(3,'Lorem ipsum','/img/slider/bureau3.jpeg','slide','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ');
+INSERT INTO `slider` VALUES (1,'Lorem ipsum','/img/slider/bureau1.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(2,'Lorem ipsum','/img/slider/bureau2.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(3,'Lorem ipsum','/img/slider/bureau3.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-09 11:34:40
+-- Dump completed on 2021-06-09 12:33:49
