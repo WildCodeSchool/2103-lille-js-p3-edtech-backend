@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 
 app.use(cors());
-app.get('/texts', async (req, res) => {
+app.get('/texts', (req, res) => {
   connection.query('SELECT * FROM texts', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
@@ -26,7 +26,7 @@ app.get('/texts', async (req, res) => {
   });
 });
 
-app.get('/images', async (req, res) => {
+app.get('/images', (req, res) => {
   connection.query('SELECT * FROM images', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
@@ -46,7 +46,7 @@ app.get('/images', async (req, res) => {
   });
 });
 
-app.get('/slider', async (req, res) => {
+app.get('/slider', (req, res) => {
   connection.query('SELECT * FROM slider', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
@@ -56,7 +56,7 @@ app.get('/slider', async (req, res) => {
   });
 });
 
-app.get('/settings_carousel', async (req, res) => {
+app.get('/settings_carousel', (req, res) => {
   connection.query('SELECT * FROM settings_carousel', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
