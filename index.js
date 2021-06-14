@@ -83,8 +83,9 @@ app.get('/settings_carousel', (req, res) => {
     }
   });
 });
-app.get('/externelinks', async (req, res) => {
-  connection.query('SELECT * FROM externelinks', (err, rows) => {
+
+app.get('/external_links', async (req, res) => {
+  connection.query('SELECT * FROM external_links', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
