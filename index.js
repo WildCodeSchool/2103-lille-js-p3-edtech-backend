@@ -57,7 +57,7 @@ app.get('/members', async (req, res) => {
   });
 });
 
-app.get('/partners', async (req, res) => {
+app.get('/partners', (req, res) => {
   connection.query('SELECT * FROM partners', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
