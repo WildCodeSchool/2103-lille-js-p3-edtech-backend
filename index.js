@@ -58,7 +58,7 @@ app.get('/members', async (req, res) => {
 });
 
 app.get('/partners', async (req, res) => {
-  connection.query('SELECT * FROM partners ORDER BY RAND()', (err, rows) => {
+  connection.query('SELECT * FROM partners', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
