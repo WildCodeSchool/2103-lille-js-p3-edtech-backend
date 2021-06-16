@@ -57,7 +57,7 @@ app.get('/slider', (req, res) => {
   });
 });
 
-app.get('/members', async (req, res) => {
+app.get('/members', (req, res) => {
   connection.query('SELECT * FROM members ORDER BY RAND()', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
