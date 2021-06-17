@@ -69,32 +69,6 @@ INSERT INTO `external_links` VALUES (1,'link_helloasso','https://www.helloasso.c
 UNLOCK TABLES;
 
 --
--- Table structure for table `externelinks`
---
-
-DROP TABLE IF EXISTS `externelinks`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `externelinks` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `tagname` varchar(64) NOT NULL,
-  `link_to` varchar(512) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `externelinks`
---
-
-LOCK TABLES `externelinks` WRITE;
-/*!40000 ALTER TABLE `externelinks` DISABLE KEYS */;
-INSERT INTO `externelinks` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf');
-/*!40000 ALTER TABLE `externelinks` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `images`
 --
 
@@ -250,7 +224,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Nom *:'),(13,'second_input','Prénom *:'),(14,'third_input','Société :'),(15,'fourth_input','Numéro de téléphone *:'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:');
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn',"J'adhère"),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Nom *:'),(13,'second_input','Prénom *:'),(14,'third_input','Société :'),(15,'fourth_input','Numéro de téléphone *:'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,4 +263,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-17 12:48:34
+-- Dump completed on 2021-06-17 12:55:27
