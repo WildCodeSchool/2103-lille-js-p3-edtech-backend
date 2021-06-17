@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: edtech
+-- Host: localhost    Database: edtech
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.0.25-0ubuntu0.20.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,8 +30,7 @@ CREATE TABLE `actus` (
   `subtext` varchar(64) DEFAULT NULL,
   `link` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,8 +55,7 @@ CREATE TABLE `external_links` (
   `link_to` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,8 +82,7 @@ CREATE TABLE `images` (
   `alt` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +91,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'logo_header','/img/header/logo.png','logo'),(2,'picto_newsletter','/img/navBar/pictogrammes/Picto_Newsletter.png','picto_newsletter'),(3,'picto_facebook','/img/navBar/pictogrammes/Picto_Facebook.png','picto_facebook'),(4,'picto_linkedIn','/img/navBar/pictogrammes/Picto_Linkedin.png','picto_linkedIn'),(5,'picto_twitter','/img/navBar/pictogrammes/Picto_Twitter.png','picto_twitter');
+INSERT INTO `images` VALUES (1,'logo_header','/img/header/logo.png','logo'),(2,'picto_newsletter','/img/navBar/pictogrammes/Picto_Newsletter.png','picto_newsletter'),(3,'picto_facebook','/img/navBar/pictogrammes/Picto_Facebook.png','picto_facebook'),(4,'picto_linkedIn','/img/navBar/pictogrammes/Picto_Linkedin.png','picto_linkedIn'),(5,'picto_twitter','/img/navBar/pictogrammes/Picto_Twitter.png','picto_twitter'),(6,'background_footer','/img/footer/Footer_EdTech_HdF.png','img_footer');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,8 +109,7 @@ CREATE TABLE `members` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,8 +136,7 @@ CREATE TABLE `partners` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,8 +162,7 @@ CREATE TABLE `settings_carousel` (
   `value` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,8 +189,7 @@ CREATE TABLE `slider` (
   `img_alt` varchar(64) DEFAULT NULL,
   `subtext` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,8 +215,7 @@ CREATE TABLE `texts` (
   `fr` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,7 +224,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact');
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'cgu','CGU / Mentions légales'),(10,'date','©️ 2021');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,6 +263,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-
--- Dump completed on 2021-06-15 13:46:49
-
+-- Dump completed on 2021-06-17  9:57:59
