@@ -1,9 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: edtech
 -- ------------------------------------------------------
-
--- Server version	8.0.25-0ubuntu0.21.04.1
+-- Server version	8.0.23
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,7 +30,7 @@ CREATE TABLE `actus` (
   `subtext` varchar(64) DEFAULT NULL,
   `link` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,7 +55,7 @@ CREATE TABLE `external_links` (
   `link_to` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +82,7 @@ CREATE TABLE `images` (
   `alt` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,7 +109,7 @@ CREATE TABLE `members` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +136,7 @@ CREATE TABLE `partners` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,6 +147,32 @@ LOCK TABLES `partners` WRITE;
 /*!40000 ALTER TABLE `partners` DISABLE KEYS */;
 INSERT INTO `partners` VALUES (1,'Bande Ka','/img/partners/BandeKa.png','BandeKa','https://pod.univ-lille.fr/bande-ka/'),(2,'C2RP','/img/partners/C2RP.png','C2RP','https://www.c2rp.fr/'),(3,'EdtechFrance','/img/partners/EdtechFrance.jpg','EdtechFrance','https://edtechfrance.fr/'),(4,'EFAP','/img/partners/EFAP.png','EFAP','https://www.efap.com/'),(5,'Euratechnologies','/img/partners/Euratechnologies.jpg','Euratechnologies','https://www.euratechnologies.com/'),(6,'FrenchtechLille','/img/partners/FrenchtechLille.png','FrenchtechLille','https://ftlille.com/'),(7,'HangarK','/img/partners/HangarK.png','HangarK','https://www.hangark.be/'),(8,'Nordledépartement','/img/partners/NordleDépartement.jpg','Nord','https://lenord.fr/jcms/j_6/accueil'),(9,'PlaineImages','/img/partners/PlaineImages.gif','PlaineImages','https://www.plaine-images.fr/'),(10,'RégionHautsdeFrance','/img/partners/RégionHdF.png','RegionHautsdeFrance','https://www.hautsdefrance.fr/'),(11,'UniversitédeLille','/img/partners/UniversitédeLille.png','UniversitédeLille','https://www.univ-lille.fr/');
 /*!40000 ALTER TABLE `partners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sections`
+--
+
+DROP TABLE IF EXISTS `sections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sections` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `place` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `place_UNIQUE` (`place`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sections`
+--
+
+LOCK TABLES `sections` WRITE;
+/*!40000 ALTER TABLE `sections` DISABLE KEYS */;
+INSERT INTO `sections` VALUES (1,'Header',1),(2,'NavBar',2),(3,'Slider',3),(4,'HdfMap',4),(5,'Members',5),(6,'Partners',6),(7,'Events',7),(8,'ContactForm',8),(9,'Footer',9);
+/*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -163,7 +188,7 @@ CREATE TABLE `settings_carousel` (
   `value` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +197,7 @@ CREATE TABLE `settings_carousel` (
 
 LOCK TABLES `settings_carousel` WRITE;
 /*!40000 ALTER TABLE `settings_carousel` DISABLE KEYS */;
-INSERT INTO `settings_carousel` VALUES (1,'slider_duration','1000'),(2,'slider_transitionDuration','500'),(3,'slider_infinite','true'),(4,'carousel_duration','4000'),(5,'items_number','4');
+INSERT INTO `settings_carousel` VALUES (1,'slider_duration','3500'),(2,'slider_transitionDuration','500'),(3,'slider_infinite','true'),(4,'carousel_duration','4000'),(5,'items_number','4');
 /*!40000 ALTER TABLE `settings_carousel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,7 +215,7 @@ CREATE TABLE `slider` (
   `img_alt` varchar(64) DEFAULT NULL,
   `subtext` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +241,7 @@ CREATE TABLE `texts` (
   `fr` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,7 +250,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn',"J'adhère"),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Nom *:'),(13,'second_input','Prénom *:'),(14,'third_input','Société :'),(15,'fourth_input','Numéro de téléphone *:'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:');
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn',"J\'adhère"),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Nom *:'),(13,'second_input','Prénom *:'),(14,'third_input','Société :'),(15,'fourth_input','Numéro de téléphone *:'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-17 12:55:27
+-- Dump completed on 2021-06-21 16:23:10

@@ -112,40 +112,6 @@ app.get('/external_links', (req, res) => {
     }
   });
 });
-const contactEmail = nodemailer.createTransport({
-  service: process.env.SERVICE,
-  auth: {
-    user: process.env.CONTACT_EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-
-app.post('/contact', (req, res) => {
-  const { firstname } = req.body;
-  const { lastname } = req.body;
-  const { society } = req.body;
-  const { email } = req.body;
-  const { message } = req.body;
-  const mail = {
-    from: firstname,
-    lastname,
-    to: process.env.CONTACT_EMAIL,
-    subject: 'Contact Form Submission',
-    html: `<p>Prénom: ${firstname}</p>
-          <p>Nom: ${lastname}</p>
-          <p>Société: ${society || 'Non renseigné'}</p>
-          <p>Email: ${email}</p>
-          <p>Message: ${message}</p>`,
-  };
-
-  contactEmail.sendMail(mail, (err) => {
-    if (err) {
-      res.json({ status: 'Error' });
-    } else {
-      res.json({ status: 'Message sent' });
-    }
-  });
-});
 
 const contactEmail = nodemailer.createTransport({
   service: process.env.SERVICE,
@@ -180,6 +146,19 @@ app.post('/contact', (req, res) => {
       res.json({ status: 'Message sent' });
     }
   });
+});
+
+app.get('/sections', (req, res) => {
+  connection.query(
+    'SELECT name FROM sections ORDER BY place ASC',
+    (err, rows) => {
+      if (err) {
+        res.status(500).send('Error retrieving data from database !');
+      } else {
+        res.status(200).json(rows);
+      }
+    }
+  );
 });
 
 app.use('/', (req, res) => {
