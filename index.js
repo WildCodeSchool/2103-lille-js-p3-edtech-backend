@@ -112,6 +112,7 @@ app.get('/external_links', (req, res) => {
     }
   });
 });
+
 const contactEmail = nodemailer.createTransport({
   service: process.env.SERVICE,
   auth: {
@@ -142,6 +143,19 @@ app.post('/contact', (req, res) => {
       res.json({ status: 'Message sent' });
     }
   });
+});
+
+app.get('/sections', (req, res) => {
+  connection.query(
+    'SELECT name FROM sections ORDER BY place ASC',
+    (err, rows) => {
+      if (err) {
+        res.status(500).send('Error retrieving data from database !');
+      } else {
+        res.status(200).json(rows);
+      }
+    }
+  );
 });
 
 app.use('/', (req, res) => {
