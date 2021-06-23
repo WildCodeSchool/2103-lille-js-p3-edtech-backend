@@ -2,7 +2,7 @@ const imagesRouter = require('express').Router();
 const connection = require('../db-config');
 
 imagesRouter.get('/', (req, res) => {
-  connection.query('SELECT * FROM images', (err, rows) => {
+  connection.query('SELECT tagname, src, alt FROM images', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {

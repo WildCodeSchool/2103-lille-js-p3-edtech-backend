@@ -2,7 +2,7 @@ const textsRouter = require('express').Router();
 const connection = require('../db-config');
 
 textsRouter.get('/', (req, res) => {
-  connection.query('SELECT * FROM texts', (err, rows) => {
+  connection.query('SELECT tagname, fr FROM texts', (err, rows) => {
     if (err) {
       res.status(500).send('Error retrieving data from database !');
     } else {
