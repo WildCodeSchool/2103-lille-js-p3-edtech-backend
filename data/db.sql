@@ -215,7 +215,7 @@ CREATE TABLE `texts` (
   `fr` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +224,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Nom *:'),(13,'second_input','Prénom *:'),(14,'third_input','Société :'),(15,'fourth_input','Numéro de téléphone *:'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:');
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(11,'date','©️2021'),(12,'first_input','Nom *:'),(13,'second_input','Prénom *:'),(14,'third_input','Société :'),(15,'fourth_input','Numéro de téléphone *:'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(18,'edtechhdf_title','Edtech Hauts-de-France'),(19,'edtech_adress','165 Avenue de Bretagne'),(20,'edtech_city','59000 Lille'),(21,'edtech_input1','lorem ipsum'),(22,'edtech_input2','lorem ipsum'),(23,'edtech_input3','lorem ipsum'),(24,'edtech_input4','lorem ipsum');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,4 +263,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-23 13:39:43
+-- Dump completed on 2021-06-23 20:39:30
