@@ -1,8 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const textsRouter = require('./routes/texts');
+const imagesRouter = require('./routes/images');
+const sliderRouter = require('./routes/slider');
+const membersRouter = require('./routes/members');
+const partnersRouter = require('./routes/partners');
+const settingsCarouselRouter = require('./routes/settingsCarousel');
+const contactRouter = require('./routes/contact');
+const sectionsRouter = require('./routes/sections');
+const externalLinksRouter = require('./routes/externalLinks');
+
 require('dotenv').config();
-const nodemailer = require('nodemailer');
-const connection = require('./db-config');
 
 const app = express();
 
@@ -12,151 +20,15 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get('/texts', (req, res) => {
-  connection.query('SELECT * FROM texts', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = row.fr;
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
-
-app.get('/images', (req, res) => {
-  connection.query('SELECT * FROM images', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = {
-          src: row.src,
-          alt: row.alt,
-        };
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
-
-app.get('/slider', (req, res) => {
-  connection.query('SELECT * FROM slider', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      res.status(200).json(rows);
-    }
-  });
-});
-
-app.get('/members', (req, res) => {
-  connection.query('SELECT * FROM members ORDER BY RAND()', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      res.status(200).json(rows);
-    }
-  });
-});
-
-app.get('/partners', (req, res) => {
-  connection.query('SELECT * FROM partners', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      res.status(200).json(rows);
-    }
-  });
-});
-
-app.get('/settings_carousel', (req, res) => {
-  connection.query('SELECT * FROM settings_carousel', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = row.value;
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
-
-app.get('/external_links', (req, res) => {
-  connection.query('SELECT * FROM external_links', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = row.link_to;
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
-
-const contactEmail = nodemailer.createTransport({
-  service: process.env.SERVICE,
-  auth: {
-    user: process.env.CONTACT_EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-
-app.post('/contact', (req, res) => {
-  const { firstname, lastname, structure, email, message, phoneNumber } =
-    req.body;
-  const mail = {
-    from: firstname,
-    to: process.env.CONTACT_EMAIL,
-    subject: 'Contact Form Submission',
-    html: `<p>Prénom: ${firstname}</p>
-          <p>Nom: ${lastname}</p>
-          <p>Structure: ${structure || 'Non renseignée'}</p>
-          <p>Numéro de téléphone: ${phoneNumber || 'Non renseigné'} 
-          <p>Email: ${email}</p>
-          <p>Message: ${message}</p>`,
-  };
-
-  contactEmail.sendMail(mail, (err) => {
-    if (err) {
-      res.json({ status: 'Error' });
-    } else {
-      res.json({ status: 'Message sent' });
-    }
-  });
-});
-
-app.get('/sections', (req, res) => {
-  connection.query(
-    'SELECT name FROM sections ORDER BY place ASC',
-    (err, rows) => {
-      if (err) {
-        res.status(500).send('Error retrieving data from database !');
-      } else {
-        res.status(200).json(rows);
-      }
-    }
-  );
-});
+app.use('/texts', textsRouter);
+app.use('/images', imagesRouter);
+app.use('/slider', sliderRouter);
+app.use('/members', membersRouter);
+app.use('/partners', partnersRouter);
+app.use('/settings_carousel', settingsCarouselRouter);
+app.use('/external_links', externalLinksRouter);
+app.use('/contact', contactRouter);
+app.use('/sections', sectionsRouter);
 
 app.use('/', (req, res) => {
   res.status(404).send('Route not found! ');
