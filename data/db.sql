@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: edtech
 -- ------------------------------------------------------
@@ -30,7 +30,7 @@ CREATE TABLE `actus` (
   `subtext` varchar(64) DEFAULT NULL,
   `link` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,32 @@ CREATE TABLE `actus` (
 LOCK TABLES `actus` WRITE;
 /*!40000 ALTER TABLE `actus` DISABLE KEYS */;
 /*!40000 ALTER TABLE `actus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `colors`
+--
+
+DROP TABLE IF EXISTS `colors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `colors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tagname` varchar(45) NOT NULL,
+  `color` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tag_name_UNIQUE` (`tagname`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `colors`
+--
+
+LOCK TABLES `colors` WRITE;
+/*!40000 ALTER TABLE `colors` DISABLE KEYS */;
+INSERT INTO `colors` VALUES (1,'navbar_text_color','rgba(44,40,117,1)'),(2,'navbar_background_color','rgba(255,255,255,1)'),(3,'header_text_color',NULL),(4,'header_background_color',NULL),(5,'slider_text_color','rgba(255,255,255,1)'),(6,'slider_background_color','rgba(55, 106, 182, 0.664)'),(7,'map_background_color','rgba(44,40,117,1)'),(8,'map_text_color','rgba(255,255,255,1)'),(9,'map_button_background_color','rgba(230,25,55,1)'),(10,'map_button_text_color','rgba(255,255,255,1)'),(11,'members_text_color','rgba(44,40,117,1)'),(12,'members_background_color','rgba(255,255,255,1)'),(13,'partners_text_color','rgba(44,40,117,1)'),(14,'partners_background_color','rgba(255,255,255,1)'),(15,'events_text_color',NULL),(16,'events_background_color',NULL),(17,'contact_text_color','rgba(255,255,255,1)'),(18,'contact_background_color','rgba(44,40,117,1)'),(19,'footer_text_color','rgba(255,255,255,1)'),(20,'footer_background_color',NULL),(21,'contact_button_background_color','rgba(230,25,55,1)'),(22,'contact_button_text_color','rgba(255,255,255,1)'),(23,'contact_button_background_color_inactive',''),(24,'contact_button_text_color_inactive',NULL),(25,'contact_button_background_color_hover','rgba(180,15,15,1)');
+/*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -55,7 +81,7 @@ CREATE TABLE `external_links` (
   `link_to` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,7 +135,7 @@ CREATE TABLE `members` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +162,7 @@ CREATE TABLE `partners` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +214,7 @@ CREATE TABLE `settings_carousel` (
   `value` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +241,7 @@ CREATE TABLE `slider` (
   `img_alt` varchar(64) DEFAULT NULL,
   `subtext` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +276,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...')(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'edtech_input1','lorem ipsum'),(36,'edtech_input2','lorem ipsum'),(37,'edtech_input3','lorem ipsum'),(38,'edtech_input4','lorem ipsum');;
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn',"J'adhère"),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...')(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'edtech_input1','lorem ipsum'),(36,'edtech_input2','lorem ipsum'),(37,'edtech_input3','lorem ipsum'),(38,'edtech_input4','lorem ipsum');;
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 

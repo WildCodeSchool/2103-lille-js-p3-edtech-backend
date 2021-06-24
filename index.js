@@ -20,6 +20,23 @@ app.use(express.json());
 
 app.use(cors());
 
+app.get('/colors', (req, res) => {
+  connection.query('SELECT tagname, color FROM colors', (err, rows) => {
+    if (err) {
+      res.status(500).send('Error retrieving data from database !');
+    } else {
+      const results = {};
+      for (let i = 0; i < rows.length; i += 1) {
+        const row = rows[i];
+        const myKey = row.tagname;
+        const myValue = row.color;
+        results[myKey] = myValue;
+      }
+      res.status(200).json(results);
+    }
+  });
+});
+
 app.use('/texts', textsRouter);
 app.use('/images', imagesRouter);
 app.use('/slider', sliderRouter);
