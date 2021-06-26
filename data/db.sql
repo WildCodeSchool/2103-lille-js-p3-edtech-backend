@@ -64,7 +64,7 @@ CREATE TABLE `colors` (
 
 LOCK TABLES `colors` WRITE;
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
-INSERT INTO `colors` VALUES (1,'navbar_text_color','rgba(44,40,117,1)'),(2,'navbar_background_color','rgba(255,255,255,1)'),(3,'header_text_color',NULL),(4,'header_background_color',NULL),(5,'slider_text_color','rgba(255,255,255,1)'),(6,'slider_background_color','rgba(55, 106, 182, 0.664)'),(7,'map_background_color','rgba(44,40,117,1)'),(8,'map_text_color','rgba(255,255,255,1)'),(9,'map_button_background_color','rgba(230,25,55,1)'),(10,'map_button_text_color','rgba(255,255,255,1)'),(11,'members_text_color','rgba(44,40,117,1)'),(12,'members_background_color','rgba(255,255,255,1)'),(13,'partners_text_color','rgba(44,40,117,1)'),(14,'partners_background_color','rgba(255,255,255,1)'),(15,'hdfTwitter_text_color',NULL),(16,'hdfTwitter_background_color',NULL),(17,'contact_text_color','rgba(255,255,255,1)'),(18,'contact_background_color','rgba(44,40,117,1)'),(19,'footer_text_color','rgba(255,255,255,1)'),(20,'footer_background_color','rgba(27,23,91,1)'),(21,'contact_button_background_color','rgba(230,25,55,1)'),(22,'contact_button_text_color','rgba(255,255,255,1)'),(23,'contact_button_background_color_inactive','rgba(42,161,29,1)'),(24,'contact_button_text_color_inactive','rgba(255,255,255,1)'),(25,'contact_button_background_color_hover','rgba(255,25,25,1)');
+INSERT INTO `colors` VALUES (1,'navbar_text_color','rgba(44,40,117,1)'),(2,'navbar_background_color','rgba(255,255,255,1)'),(3,'header_text_color',NULL),(4,'header_background_color',NULL),(5,'slider_text_color','rgba(255,255,255,1)'),(6,'slider_background_color','rgba(55, 106, 182, 0.664)'),(7,'map_background_color','rgba(44,40,117,1)'),(8,'map_text_color','rgba(255,255,255,1)'),(9,'map_button_background_color','rgba(230,25,55,1)'),(10,'map_button_text_color','rgba(255,255,255,1)'),(11,'members_text_color','rgba(44,40,117,1)'),(12,'members_background_color','rgba(255,255,255,1)'),(13,'partners_text_color','rgba(44,40,117,1)'),(14,'partners_background_color','rgba(255,255,255,1)'),(15,'hdfTwitter_text_color','rgba(255,255,255,1)'),(16,'hdfTwitter_background_color','rgba(230,25,55,1)'),(17,'contact_text_color','rgba(255,255,255,1)'),(18,'contact_background_color','rgba(44,40,117,1)'),(19,'footer_text_color','rgba(255,255,255,1)'),(20,'footer_background_color','rgba(27,23,91,1)'),(21,'contact_button_background_color','rgba(230,25,55,1)'),(22,'contact_button_text_color','rgba(255,255,255,1)'),(23,'contact_button_background_color_inactive','rgba(42,161,29,1)'),(24,'contact_button_text_color_inactive','rgba(255,255,255,1)'),(25,'contact_button_background_color_hover','rgba(255,25,25,1)');
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +197,7 @@ CREATE TABLE `sections` (
 
 LOCK TABLES `sections` WRITE;
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
-INSERT INTO `sections` VALUES (1,'Header',1),(2,'NavBar',2),(3,'Slider',3),(4,'HdfMap',4),(5,'Members',5),(6,'Partners',6),(7,'Events',7),(8,'ContactForm',8),(9,'Footer',9);
+INSERT INTO `sections` VALUES (1,'Header',1),(2,'NavBar',2),(3,'Slider',3),(4,'HdfMap',4),(5,'Members',5),(6,'Partners',6),(7,'HdfTwitter',7),(8,'ContactForm',8),(9,'Footer',9);
 /*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,4 +315,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-26 14:25:10
+-- Dump completed on 2021-06-26 14:47:27
