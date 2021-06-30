@@ -9,6 +9,7 @@ const settingsCarouselRouter = require('./routes/settingsCarousel');
 const contactRouter = require('./routes/contact');
 const sectionsRouter = require('./routes/sections');
 const externalLinksRouter = require('./routes/externalLinks');
+const colorsRouter = require('./routes/colors');
 
 require('dotenv').config();
 
@@ -20,23 +21,6 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get('/colors', (req, res) => {
-  connection.query('SELECT tagname, color FROM colors', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = row.color;
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
-
 app.use('/texts', textsRouter);
 app.use('/images', imagesRouter);
 app.use('/slider', sliderRouter);
@@ -46,6 +30,7 @@ app.use('/settings_carousel', settingsCarouselRouter);
 app.use('/external_links', externalLinksRouter);
 app.use('/contact', contactRouter);
 app.use('/sections', sectionsRouter);
+app.use('/colors', colorsRouter);
 
 app.use('/', (req, res) => {
   res.status(404).send('Route not found! ');
