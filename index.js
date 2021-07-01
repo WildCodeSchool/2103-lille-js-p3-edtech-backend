@@ -1,6 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const connection = require('./db-config');
+const textsRouter = require('./routes/texts');
+const imagesRouter = require('./routes/images');
+const sliderRouter = require('./routes/slider');
+const membersRouter = require('./routes/members');
+const partnersRouter = require('./routes/partners');
+const settingsCarouselRouter = require('./routes/settingsCarousel');
+const contactRouter = require('./routes/contact');
+const sectionsRouter = require('./routes/sections');
+const externalLinksRouter = require('./routes/externalLinks');
+const colorsRouter = require('./routes/colors');
+
+require('dotenv').config();
 
 const app = express();
 
@@ -10,59 +21,16 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get('/texts', async (req, res) => {
-  connection.query('SELECT * FROM texts', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = row.fr;
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
-
-app.get('/images', async (req, res) => {
-  connection.query('SELECT * FROM images', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = {
-          src: row.src,
-          alt: row.alt,
-        };
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
-
-app.get('/externelinks', async (req, res) => {
-  connection.query('SELECT * FROM externelinks', (err, rows) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database !');
-    } else {
-      const results = {};
-      for (let i = 0; i < rows.length; i += 1) {
-        const row = rows[i];
-        const myKey = row.tagname;
-        const myValue = row.link_to;
-        results[myKey] = myValue;
-      }
-      res.status(200).json(results);
-    }
-  });
-});
+app.use('/texts', textsRouter);
+app.use('/images', imagesRouter);
+app.use('/slider', sliderRouter);
+app.use('/members', membersRouter);
+app.use('/partners', partnersRouter);
+app.use('/settings_carousel', settingsCarouselRouter);
+app.use('/external_links', externalLinksRouter);
+app.use('/contact', contactRouter);
+app.use('/sections', sectionsRouter);
+app.use('/colors', colorsRouter);
 
 app.use('/', (req, res) => {
   res.status(404).send('Route not found! ');
