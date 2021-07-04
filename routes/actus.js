@@ -6,7 +6,6 @@ actusRouter.get('/', (req, res) => {
     'SELECT title, img_src, img_alt, link, content, date_time, is_active FROM actus ORDER BY date_time DESC',
     (err, rows) => {
       if (err) {
-        console.log(err);
         res.status(500).send('Error retrieving data from database !');
       } else {
         res.status(200).json(rows);
