@@ -14,14 +14,15 @@ contactRouter.post('/', (req, res) => {
   const { firstname, lastname, structure, email, message, phoneNumber } =
     req.body;
   const mail = {
-    from: firstname,
+    from: { firstname, lastname },
     to: process.env.CONTACT_EMAIL,
-    subject: 'Contact Form Submission',
+    subject: 'Contact site internet edTech Hdf',
     html: `<p>Prénom: ${firstname}</p>
           <p>Nom: ${lastname}</p>
           <p>Structure: ${structure || 'Non renseignée'}</p>
           <p>Numéro de téléphone: ${phoneNumber || 'Non renseigné'} 
           <p>Email: ${email}</p>
+          <p>Validation RGPD : Oui</p>
           <p>Message: ${message}</p>`,
   };
 

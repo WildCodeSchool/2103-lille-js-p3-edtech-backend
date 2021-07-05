@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: edtech
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.0.25-0ubuntu0.20.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,10 +27,12 @@ CREATE TABLE `actus` (
   `title` varchar(64) NOT NULL,
   `img_src` varchar(128) NOT NULL,
   `img_alt` varchar(64) DEFAULT NULL,
-  `subtext` varchar(64) DEFAULT NULL,
   `link` varchar(128) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `date_time` datetime DEFAULT NULL,
+  `is_active` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +41,7 @@ CREATE TABLE `actus` (
 
 LOCK TABLES `actus` WRITE;
 /*!40000 ALTER TABLE `actus` DISABLE KEYS */;
+INSERT INTO `actus` VALUES (1,'actu n°1','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu1','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-07-01 10:30:25','true'),(2,'actu n°2','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu2','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(3,'actu n°3','','actu3','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(4,'actu n°4','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false'),(5,'actu n°5','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false');
 /*!40000 ALTER TABLE `actus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +84,7 @@ CREATE TABLE `external_links` (
   `link_to` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +93,7 @@ CREATE TABLE `external_links` (
 
 LOCK TABLES `external_links` WRITE;
 /*!40000 ALTER TABLE `external_links` DISABLE KEYS */;
-INSERT INTO `external_links` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf'),(6,'link_map','https://livemap.getwemap.com/embed.html?emmid=15883&iframeid=ed23008b-869a-482f-8f70-21c1041b88ed&parentLocation=https%3A%2F%2Flivemap.getwemap.com%2Fembed.html&parentOrigin=https%3A%2F%2Flivemap.getwemap.com&token=CQW96JV4PEI60Z56A7MBB7G2X#/search@48.8526893,2.3282879,5.00');
+INSERT INTO `external_links` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf'),(6,'link_map','https://livemap.getwemap.com/embed.html?emmid=15883&iframeid=ed23008b-869a-482f-8f70-21c1041b88ed&parentLocation=https%3A%2F%2Flivemap.getwemap.com%2Fembed.html&parentOrigin=https%3A%2F%2Flivemap.getwemap.com&token=CQW96JV4PEI60Z56A7MBB7G2X#/search@48.8526893,2.3282879,5.00'),(7,'link_widget','https://platform.twitter.com/widgets.js'),(8,'link_actu1','https://edtechactu.com/digital-learning/soutien-scolaire-gostudent-leve-205-millions-deuros/'),(9,'link_actu2','https://edtechactu.com/digital-learning/soutien-scolaire-gostudent-leve-205-millions-deuros/'),(10,'link_actu3','https://edtechactu.com/digital-learning/soutien-scolaire-gostudent-leve-205-millions-deuros/'),(11,'link_actu4','https://edtechactu.com/digital-learning/soutien-scolaire-gostudent-leve-205-millions-deuros/'),(12,'link_actu5','https://edtechactu.com/digital-learning/soutien-scolaire-gostudent-leve-205-millions-deuros/');
 /*!40000 ALTER TABLE `external_links` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +111,7 @@ CREATE TABLE `images` (
   `alt` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +138,7 @@ CREATE TABLE `members` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +165,7 @@ CREATE TABLE `partners` (
   `logo_alt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +217,7 @@ CREATE TABLE `settings_carousel` (
   `value` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +244,7 @@ CREATE TABLE `slider` (
   `img_alt` varchar(64) DEFAULT NULL,
   `subtext` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,10 +267,10 @@ DROP TABLE IF EXISTS `texts`;
 CREATE TABLE `texts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `fr` varchar(45) NOT NULL,
+  `fr` varchar(128) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,7 +279,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...'),(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'edtech_input1','lorem ipsum'),(36,'edtech_input2','lorem ipsum'),(37,'edtech_input3','lorem ipsum'),(38,'edtech_input4','lorem ipsum'),(39,'isImgMapFirst','false'),(40,'btn_map','Lien vers la carte');
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...'),(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'edtech_input1','lorem ipsum'),(36,'edtech_input2','lorem ipsum'),(37,'edtech_input3','lorem ipsum'),(38,'edtech_input4','lorem ipsum'),(39,'isImgMapFirst','false'),(40,'btn_map','Lien vers la carte'),(54,'RGPD','J\'accepte de partager mes informations à l\'association edTech HdF.'),(55,'contact_messageSent','Message envoyé !'),(56,'contact_sendMessage','Envoyer');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,4 +318,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-01 12:10:14
+-- Dump completed on 2021-07-02 16:40:33

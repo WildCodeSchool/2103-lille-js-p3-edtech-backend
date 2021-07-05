@@ -10,6 +10,7 @@ const contactRouter = require('./routes/contact');
 const sectionsRouter = require('./routes/sections');
 const externalLinksRouter = require('./routes/externalLinks');
 const colorsRouter = require('./routes/colors');
+const actusRouter = require('./routes/actus');
 
 require('dotenv').config();
 
@@ -31,6 +32,7 @@ app.use('/external_links', externalLinksRouter);
 app.use('/contact', contactRouter);
 app.use('/sections', sectionsRouter);
 app.use('/colors', colorsRouter);
+app.use('/actus', actusRouter);
 
 app.use('/', (req, res) => {
   res.status(404).send('Route not found! ');
