@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
 const connection = mysql.createPool({
   host: process.env.DB_HOST, // address of the server
@@ -9,4 +9,6 @@ const connection = mysql.createPool({
   database: process.env.DB_NAME,
 });
 
-module.exports = connection;
+const { SALTROUNDS, JWT_SECRET } = process.env;
+
+module.exports = { connection, saltrounds: SALTROUNDS, secretKey: JWT_SECRET };
