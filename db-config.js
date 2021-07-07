@@ -11,4 +11,4 @@ const connection = mysql.createPool({
 
 const { SALTROUNDS, JWT_SECRET } = process.env;
 
-module.exports = { connection, saltrounds: SALTROUNDS, secretKey: JWT_SECRET };
+module.exports = { connection, saltRounds: SALTROUNDS, secretKey: JWT_SECRET };
