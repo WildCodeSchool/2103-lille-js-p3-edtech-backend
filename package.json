@@ -8,6 +8,7 @@
   "license": "ISC",
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "lint": "eslint \"./**/*.js\" --fix .",
     "prettify": "prettier --write ."
   },
