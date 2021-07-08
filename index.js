@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const passport = require('passport');
 const textsRouter = require('./routes/texts');
 const imagesRouter = require('./routes/images');
 const sliderRouter = require('./routes/slider');
@@ -11,6 +12,7 @@ const sectionsRouter = require('./routes/sections');
 const externalLinksRouter = require('./routes/externalLinks');
 const colorsRouter = require('./routes/colors');
 const actusRouter = require('./routes/actus');
+const authRouter = require('./routes/auth');
 
 require('dotenv').config();
 
@@ -19,7 +21,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
-
+app.use(passport.initialize());
 app.use(cors());
 
 app.use('/texts', textsRouter);
@@ -33,6 +35,7 @@ app.use('/contact', contactRouter);
 app.use('/sections', sectionsRouter);
 app.use('/colors', colorsRouter);
 app.use('/actus', actusRouter);
+app.use('/auth', authRouter);
 
 app.use('/', (req, res) => {
   res.status(404).send('Route not found! ');
