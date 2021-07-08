@@ -13,16 +13,13 @@ const externalLinksRouter = require('./routes/externalLinks');
 const colorsRouter = require('./routes/colors');
 const actusRouter = require('./routes/actus');
 const authRouter = require('./routes/auth');
-
-require('dotenv').config();
+const { port, frontendUrl } = require('./db-config');
 
 const app = express();
 
-const port = process.env.PORT || 8080;
-
 app.use(express.json());
 app.use(passport.initialize());
-app.use(cors());
+app.use(cors({ credentials: true, origin: frontendUrl }));
 
 app.use('/texts', textsRouter);
 app.use('/images', imagesRouter);
