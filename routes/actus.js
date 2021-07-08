@@ -25,6 +25,19 @@ actusRouter.get('/:id', async (req, res) => {
   }
 });
 
+actusRouter.post('/', async (req, res) => {
+  const { title, imgSrc, imgAlt, link, content, dateTime, isActive } = req.body;
+  const sql =
+    'INSERT INTO actus (title, imgSrc, imgAlt, link, content, dateTime, isActive) VALUES(?,?,?,?,?,?,?)';
+  const sqlValues = [title, imgSrc, imgAlt, link, content, dateTime, isActive];
+  try {
+    const [results] = await connection.query(sql, sqlValues);
+    res.status(201).json(results);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 actusRouter.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { title, imgSrc, imgAlt, link, content, dateTime, isActive } = req.body;
@@ -43,6 +56,18 @@ actusRouter.put('/:id', async (req, res) => {
   try {
     const [results] = await connection.query(sql, sqlValues);
     res.status(201).json(results);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+actusRouter.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM actus WHERE id=?';
+  const sqlValues = [id];
+  try {
+    const [results] = await connection.query(sql, sqlValues);
+    res.json(results);
   } catch (err) {
     res.status(400).send(err);
   }
