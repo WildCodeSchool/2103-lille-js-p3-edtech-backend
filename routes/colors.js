@@ -1,5 +1,5 @@
 const colorsRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 colorsRouter.get('/', async (req, res) => {
   try {

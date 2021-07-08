@@ -1,5 +1,5 @@
 const sliderRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 sliderRouter.get('/', async (req, res) => {
   try {

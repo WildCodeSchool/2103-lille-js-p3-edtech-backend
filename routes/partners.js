@@ -1,5 +1,5 @@
 const partnersRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 partnersRouter.get('/', async (req, res) => {
   try {

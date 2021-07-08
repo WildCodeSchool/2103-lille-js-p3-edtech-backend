@@ -1,5 +1,5 @@
 const externalLinksRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 externalLinksRouter.get('/', async (req, res) => {
   try {

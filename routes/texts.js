@@ -1,5 +1,5 @@
 const textsRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 textsRouter.get('/', async (req, res) => {
   try {
