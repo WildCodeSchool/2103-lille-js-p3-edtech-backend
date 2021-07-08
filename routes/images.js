@@ -1,5 +1,5 @@
 const imagesRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 imagesRouter.get('/', async (req, res) => {
   try {

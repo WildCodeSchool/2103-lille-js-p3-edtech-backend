@@ -1,5 +1,5 @@
 const membersRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 membersRouter.get('/', async (req, res) => {
   try {

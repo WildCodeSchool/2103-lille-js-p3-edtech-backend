@@ -1,5 +1,5 @@
 const sectionsRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 sectionsRouter.get('/', async (req, res) => {
   try {
