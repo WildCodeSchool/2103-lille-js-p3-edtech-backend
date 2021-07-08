@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS `actus`;
 CREATE TABLE `actus` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(64) NOT NULL,
-  `img_src` varchar(128) NOT NULL,
-  `img_alt` varchar(64) DEFAULT NULL,
+  `imgSrc` varchar(128) NOT NULL,
+  `imgAlt` varchar(64) DEFAULT NULL,
   `link` varchar(128) NOT NULL,
   `content` varchar(255) NOT NULL,
-  `date_time` datetime DEFAULT NULL,
-  `is_active` varchar(45) NOT NULL,
+  `dateTime` datetime DEFAULT NULL,
+  `isActive` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,7 +41,7 @@ CREATE TABLE `actus` (
 
 LOCK TABLES `actus` WRITE;
 /*!40000 ALTER TABLE `actus` DISABLE KEYS */;
-INSERT INTO `actus` VALUES (1,'actu n°1','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu1','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-07-01 10:30:25','true'),(2,'actu n°2','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu2','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(3,'actu n°3','','actu3','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(4,'actu n°4','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false'),(5,'actu n°5','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false');
+INSERT INTO `actus` VALUES (1,'actu n°','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu1','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-27 10:10:10','true'),(2,'actu n°2','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu2','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(3,'actu n°3','','actu3','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(4,'actu n°4','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false'),(5,'actu n°5','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false');
 /*!40000 ALTER TABLE `actus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `external_links`;
 CREATE TABLE `external_links` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `link_to` varchar(512) NOT NULL,
+  `linkTo` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
@@ -93,7 +93,7 @@ CREATE TABLE `external_links` (
 
 LOCK TABLES `external_links` WRITE;
 /*!40000 ALTER TABLE `external_links` DISABLE KEYS */;
-INSERT INTO `external_links` VALUES (1,'link_helloasso','https://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf'),(6,'link_map','https://livemap.getwemap.com/embed.html?emmid=15883&iframeid=ed23008b-869a-482f-8f70-21c1041b88ed&parentLocation=https%3A%2F%2Flivemap.getwemap.com%2Fembed.html&parentOrigin=https%3A%2F%2Flivemap.getwemap.com&token=CQW96JV4PEI60Z56A7MBB7G2X#/search@48.8526893,2.3282879,5.00'),(7,'link_widget','https://platform.twitter.com/widgets.js');
+INSERT INTO `external_links` VALUES (1,'link_helloasso','http://www.helloasso.com/associations/edtech-hauts-de-france'),(2,'link_newsletter','http://eepurl.com/hhJSqj'),(3,'link_facebook','https://www.facebook.com/Edtech.HdF'),(4,'link_linkedIn','https://www.linkedin.com/company/edtech-hauts-de-france/'),(5,'link_twitter','https://twitter.com/edtech_hdf'),(6,'link_map','https://livemap.getwemap.com/embed.html?emmid=15883&iframeid=ed23008b-869a-482f-8f70-21c1041b88ed&parentLocation=https%3A%2F%2Flivemap.getwemap.com%2Fembed.html&parentOrigin=https%3A%2F%2Flivemap.getwemap.com&token=CQW96JV4PEI60Z56A7MBB7G2X#/search@48.8526893,2.3282879,5.00'),(7,'link_widget','https://platform.twitter.com/widgets.js');
 /*!40000 ALTER TABLE `external_links` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,8 +134,8 @@ DROP TABLE IF EXISTS `members`;
 CREATE TABLE `members` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
-  `logo_src` varchar(128) DEFAULT NULL,
-  `logo_alt` varchar(64) DEFAULT NULL,
+  `logoSrc` varchar(128) DEFAULT NULL,
+  `logoAlt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -161,8 +161,8 @@ DROP TABLE IF EXISTS `partners`;
 CREATE TABLE `partners` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
-  `logo_src` varchar(128) NOT NULL,
-  `logo_alt` varchar(64) DEFAULT NULL,
+  `logoSrc` varchar(128) NOT NULL,
+  `logoAlt` varchar(64) DEFAULT NULL,
   `link` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
@@ -240,8 +240,8 @@ DROP TABLE IF EXISTS `slider`;
 CREATE TABLE `slider` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(64) NOT NULL,
-  `img_src` varchar(128) NOT NULL,
-  `img_alt` varchar(64) DEFAULT NULL,
+  `imgSrc` varchar(128) NOT NULL,
+  `imgAlt` varchar(64) DEFAULT NULL,
   `subtext` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -291,13 +291,13 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `lastname` varchar(64) NOT NULL,
   `firstname` varchar(64) NOT NULL,
   `email` varchar(64) NOT NULL,
   `password` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -306,6 +306,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (25,'Fortry','Georges','gfortry@hotmail.com','$2b$08$AXuflZ.jmewMFwzqoobYiOh1Vp3wesW9igv7PjRS1brdyr6.ZJK6i');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -318,4 +319,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-05 19:20:13
+-- Dump completed on 2021-07-07 17:09:54

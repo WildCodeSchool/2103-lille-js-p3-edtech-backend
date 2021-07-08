@@ -34,4 +34,5 @@ contactRouter.post('/', (req, res) => {
     }
   });
 });
+
 module.exports = contactRouter;
