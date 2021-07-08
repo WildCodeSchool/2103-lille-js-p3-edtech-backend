@@ -32,7 +32,7 @@ CREATE TABLE `actus` (
   `dateTime` datetime DEFAULT NULL,
   `isActive` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `actus` (
 
 LOCK TABLES `actus` WRITE;
 /*!40000 ALTER TABLE `actus` DISABLE KEYS */;
-INSERT INTO `actus` VALUES (1,'actu n°','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu1','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-27 10:10:10','true'),(2,'actu n°2','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu2','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(3,'actu n°3','','actu3','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(4,'actu n°4','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false'),(5,'actu n°5','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false');
+INSERT INTO `actus` VALUES (1,'actu n°1','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu1','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-27 10:10:10','true'),(2,'actu n°2','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu2','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(3,'actu n°3','','actu3','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','true'),(4,'actu n°4','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false'),(5,'actu n°5','https://www.voyageway.com/wp-content/uploads/2020/05/visiter-lille-740x459.jpg','actu5','https://www.voyageway.com/visiter-lille','Lille, surnommée la capitale des Flandres, est une ville idéale pour un week-end de 2 ou 3 jours. De plus, aller visiter Lille est vraiment facile grâce à sa situation géographique, avec un accès facile en train','2021-06-29 10:30:25','false');
 /*!40000 ALTER TABLE `actus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +58,7 @@ CREATE TABLE `colors` (
   `color` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tag_name_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `colors` (
 
 LOCK TABLES `colors` WRITE;
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
-INSERT INTO `colors` VALUES (1,'navbar_text_color','#2c2875'),(2,'navbar_background_color','#FFFFFF'),(3,'header_text_color',NULL),(4,'header_background_color',NULL),(5,'slider_text_color','#FFFFFF'),(6,'slider_background_color','rgba(55, 106, 182, 0.664)'),(7,'map_background_color','#2c2875'),(8,'map_text_color','#FFFFFF'),(9,'map_button_background_color','#e61937'),(10,'map_button_text_color','#FFFFFF'),(11,'members_text_color','#2c2875'),(12,'members_background_color','#FFFFFF'),(13,'partners_text_color','#2c2875'),(14,'partners_background_color','#FFFFFF'),(15,'hdfTwitter_text_color','#FFFFFF'),(16,'hdfTwitter_background_color','#e61937'),(17,'contact_text_color','#FFFFFF'),(18,'contact_background_color','#2c2875'),(19,'footer_text_color','#FFFFFF'),(20,'footer_background_color','#1b175b'),(21,'contact_button_background_color','#e61937'),(22,'contact_button_text_color','#FFFFFF'),(23,'contact_button_background_color_inactive','#2aa11d'),(24,'contact_button_text_color_inactive','#FFFFFF'),(25,'contact_button_background_color_hover','#FF1919'),(26,'newsletter_background_color','#FFFFFF'),(27,'newsletter_text_color','#2c2875'),(28,'newsletter_button_background_color','#e61937'),(29,'newsletter_button_text_color','#FFFFFF');
+INSERT INTO `colors` VALUES (1,'navbar_text_color','#2c2875'),(2,'navbar_background_color','#FFFFFF'),(3,'header_text_color',NULL),(4,'header_background_color',NULL),(5,'slider_text_color','#FFFFFF'),(6,'slider_background_color','rgba(55, 106, 182, 0.664)'),(7,'map_background_color','#2c2875'),(8,'map_text_color','#FFFFFF'),(9,'map_button_background_color','#e61937'),(10,'map_button_text_color','#FFFFFF'),(11,'members_text_color','#2c2875'),(12,'members_background_color','#FFFFFF'),(13,'partners_text_color','#2c2875'),(14,'partners_background_color','#FFFFFF'),(15,'hdfTwitter_text_color','#FFFFFF'),(16,'hdfTwitter_background_color','#e61937'),(17,'contact_text_color','#FFFFFF'),(18,'contact_background_color','#2c2875'),(19,'footer_text_color','#FFFFFF'),(20,'footer_background_color','#1b175b'),(21,'contact_button_background_color','#e61937'),(22,'contact_button_text_color','#FFFFFF'),(23,'contact_button_background_color_inactive','#2aa11d'),(24,'contact_button_text_color_inactive','#FFFFFF'),(25,'contact_button_background_color_hover','#FF1919'),(26,'newsletter_background_color','#FFFFFF'),(27,'newsletter_text_color','#2c2875'),(28,'newsletter_button_background_color','#e61937'),(29,'newsletter_button_text_color','#FFFFFF'),(30,'actu_background_color','#2c2875'),(31,'actu_link_color','#FFFFFF'),(32,'accordion_background_color','#2c2875'),(33,'accordion_text_color','#FFFFFF');
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,4 +319,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-07 17:09:54
+-- Dump completed on 2021-07-08 11:40:24
