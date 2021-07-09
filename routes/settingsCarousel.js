@@ -1,5 +1,16 @@
 const settingsCarouselRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
+
+settingsCarouselRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, tagname, value FROM settings_carousel'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
 
 settingsCarouselRouter.get('/', async (req, res) => {
   try {

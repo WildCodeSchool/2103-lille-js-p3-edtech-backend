@@ -1,5 +1,16 @@
 const imagesRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
+
+imagesRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, tagname, src, alt FROM images'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
 
 imagesRouter.get('/', async (req, res) => {
   try {

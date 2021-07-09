@@ -1,5 +1,16 @@
 const externalLinksRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
+
+externalLinksRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, tagname, linkTo FROM external_links'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
 
 externalLinksRouter.get('/', async (req, res) => {
   try {

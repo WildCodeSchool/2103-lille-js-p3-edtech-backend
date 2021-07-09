@@ -1,5 +1,14 @@
 const textsRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
+
+textsRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query('SELECT id, tagname, fr FROM texts');
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
 
 textsRouter.get('/', async (req, res) => {
   try {
