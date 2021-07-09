@@ -1,5 +1,5 @@
 const actusRouter = require('express').Router();
-const connection = require('../db-config');
+const { connection } = require('../db-config');
 
 actusRouter.get('/', async (req, res) => {
   try {
