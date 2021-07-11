@@ -30,7 +30,7 @@ externalLinksRouter.get('/', async (req, res) => {
   }
 });
 
-externalLinksRouter.get('/:id', async (req, res) => {
+externalLinksRouter.get('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT tagname, linkTo FROM external_links WHERE id = ?';
   const sqlValues = [id];
@@ -42,7 +42,7 @@ externalLinksRouter.get('/:id', async (req, res) => {
   }
 });
 
-externalLinksRouter.put('/:id', async (req, res) => {
+externalLinksRouter.put('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const { linkTo } = req.body;
   const sql = 'UPDATE external_links SET linkTo = ? WHERE id = ?';

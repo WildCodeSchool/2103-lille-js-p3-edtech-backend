@@ -40,7 +40,7 @@ colorsRouter.get('/admin/:id', async (req, res) => {
   }
 });
 
-colorsRouter.put('/:id', async (req, res) => {
+colorsRouter.put('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const { color } = req.body;
   const sql = 'UPDATE colors SET color = ? WHERE id = ?';

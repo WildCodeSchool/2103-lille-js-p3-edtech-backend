@@ -30,7 +30,7 @@ settingsCarouselRouter.get('/', async (req, res) => {
   }
 });
 
-settingsCarouselRouter.get('/:id', async (req, res) => {
+settingsCarouselRouter.get('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT tagname, value FROM settings_carousel WHERE id = ?';
   const sqlValues = [id];
@@ -42,7 +42,7 @@ settingsCarouselRouter.get('/:id', async (req, res) => {
   }
 });
 
-settingsCarouselRouter.put('/:id', async (req, res) => {
+settingsCarouselRouter.put('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const { value } = req.body;
   const sql = 'UPDATE settings_carousel SET value = ? WHERE id = ?';
