@@ -1,6 +1,17 @@
 const imagesRouter = require('express').Router();
 const { connection } = require('../db-config');
 
+imagesRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, tagname, src, alt FROM images'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 imagesRouter.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query(
@@ -22,7 +33,7 @@ imagesRouter.get('/', async (req, res) => {
   }
 });
 
-imagesRouter.get('/:id', async (req, res) => {
+imagesRouter.get('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT tagname, src, alt FROM images WHERE id = ?';
   const sqlValues = [id];
@@ -34,7 +45,7 @@ imagesRouter.get('/:id', async (req, res) => {
   }
 });
 
-imagesRouter.put('/:id', async (req, res) => {
+imagesRouter.put('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const { src, alt } = req.body;
   const sql = 'UPDATE images SET src = ?, alt = ? WHERE id = ?';

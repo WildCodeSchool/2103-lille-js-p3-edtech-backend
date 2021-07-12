@@ -1,6 +1,17 @@
 const colorsRouter = require('express').Router();
 const { connection } = require('../db-config');
 
+colorsRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, tagname, color FROM colors'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 colorsRouter.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query('SELECT tagname, color FROM colors');
@@ -17,7 +28,7 @@ colorsRouter.get('/', async (req, res) => {
   }
 });
 
-colorsRouter.get('/:id', async (req, res) => {
+colorsRouter.get('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT tagname, color FROM colors WHERE id = ?';
   const sqlValues = [id];
@@ -29,7 +40,7 @@ colorsRouter.get('/:id', async (req, res) => {
   }
 });
 
-colorsRouter.put('/:id', async (req, res) => {
+colorsRouter.put('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const { color } = req.body;
   const sql = 'UPDATE colors SET color = ? WHERE id = ?';

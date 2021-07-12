@@ -24,6 +24,19 @@ sliderRouter.get('/:id', async (req, res) => {
   }
 });
 
+sliderRouter.post('/', async (req, res) => {
+  const { title, imgSrc, imgAlt, subtext } = req.body;
+  const sql =
+    'INSERT INTO slider (title, imgSrc, imgAlt, subtext) VALUES(?,?,?,?)';
+  const sqlValues = [title, imgSrc, imgAlt, subtext];
+  try {
+    const [results] = await connection.query(sql, sqlValues);
+    res.status(201).json(results);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 sliderRouter.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { title, imgSrc, imgAlt, subtext } = req.body;
@@ -38,4 +51,15 @@ sliderRouter.put('/:id', async (req, res) => {
   }
 });
 
+sliderRouter.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM slider WHERE id=?';
+  const sqlValues = [id];
+  try {
+    const [results] = await connection.query(sql, sqlValues);
+    res.json(results);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
 module.exports = sliderRouter;

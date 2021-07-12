@@ -1,6 +1,17 @@
 const externalLinksRouter = require('express').Router();
 const { connection } = require('../db-config');
 
+externalLinksRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, tagname, linkTo FROM external_links'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 externalLinksRouter.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query(
@@ -19,7 +30,7 @@ externalLinksRouter.get('/', async (req, res) => {
   }
 });
 
-externalLinksRouter.get('/:id', async (req, res) => {
+externalLinksRouter.get('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT tagname, linkTo FROM external_links WHERE id = ?';
   const sqlValues = [id];
@@ -31,7 +42,7 @@ externalLinksRouter.get('/:id', async (req, res) => {
   }
 });
 
-externalLinksRouter.put('/:id', async (req, res) => {
+externalLinksRouter.put('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const { linkTo } = req.body;
   const sql = 'UPDATE external_links SET linkTo = ? WHERE id = ?';

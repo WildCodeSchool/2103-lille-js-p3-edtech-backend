@@ -1,6 +1,17 @@
 const settingsCarouselRouter = require('express').Router();
 const { connection } = require('../db-config');
 
+settingsCarouselRouter.get('/admin', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, tagname, value FROM settings_carousel'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 settingsCarouselRouter.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query(
@@ -19,7 +30,7 @@ settingsCarouselRouter.get('/', async (req, res) => {
   }
 });
 
-settingsCarouselRouter.get('/:id', async (req, res) => {
+settingsCarouselRouter.get('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT tagname, value FROM settings_carousel WHERE id = ?';
   const sqlValues = [id];
@@ -31,7 +42,7 @@ settingsCarouselRouter.get('/:id', async (req, res) => {
   }
 });
 
-settingsCarouselRouter.put('/:id', async (req, res) => {
+settingsCarouselRouter.put('/admin/:id', async (req, res) => {
   const { id } = req.params;
   const { value } = req.body;
   const sql = 'UPDATE settings_carousel SET value = ? WHERE id = ?';

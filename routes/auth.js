@@ -5,6 +5,17 @@ const jwt = require('jsonwebtoken');
 const { connection, saltRounds, secretKey } = require('../db-config');
 require('../strategies');
 
+authRouter.get('/signup', async (req, res) => {
+  try {
+    const [rows] = await connection.query(
+      'SELECT id, lastname, firstname, email FROM users'
+    );
+    res.status(200).json(rows);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 authRouter.post('/signup', async (req, res) => {
   req.body.password = bcrypt.hashSync(
     req.body.password,
@@ -19,6 +30,18 @@ authRouter.post('/signup', async (req, res) => {
     delete req.body.password;
     const token = jwt.sign(req.body, secretKey);
     res.json({ user: req.body, token });
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+authRouter.delete('/signup/:id', async (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM users WHERE id=?';
+  const sqlValues = [id];
+  try {
+    const [results] = await connection.query(sql, sqlValues);
+    res.json(results);
   } catch (err) {
     res.status(400).send(err);
   }
