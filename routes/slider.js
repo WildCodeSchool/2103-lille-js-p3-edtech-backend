@@ -4,7 +4,7 @@ const { connection } = require('../db-config');
 sliderRouter.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query(
-      'SELECT title, imgSrc, imgAlt, subtext FROM slider'
+      'SELECT id, title, imgSrc, imgAlt, subtext FROM slider'
     );
     res.status(200).json(rows);
   } catch (err) {
