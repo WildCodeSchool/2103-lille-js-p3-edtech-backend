@@ -267,7 +267,7 @@ DROP TABLE IF EXISTS `texts`;
 CREATE TABLE `texts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `fr` varchar(128) NOT NULL,
+  `fr` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
@@ -279,7 +279,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...'),(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'edtech_input1','lorem ipsum'),(36,'edtech_input2','lorem ipsum'),(37,'edtech_input3','lorem ipsum'),(38,'edtech_input4','lorem ipsum'),(39,'isImgMapFirst','false'),(40,'btn_map','Lien vers la carte'),(54,'RGPD','J\'accepte de partager mes informations à l\'association edTech HdF.'),(55,'contact_messageSent','Message envoyé !'),(56,'contact_sendMessage','Envoyer'),(57,'sixth_section','Newsletter'),(58,'description_newsletter','Abonnez-vous à notre newsletter !'),(59,'btn_newsletter','Je m\'inscris !'),(60,'fourth_btn','Présentation');
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...'),(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'edtech_input1',''),(36,'edtech_input2',''),(37,'edtech_input3',''),(38,'edtech_input4',''),(39,'isImgMapFirst','false'),(40,'btn_map','Lien vers la carte'),(54,'RGPD','J\'accepte de partager mes informations à l\'association edTech HdF.'),(55,'contact_messageSent','Message envoyé !'),(56,'contact_sendMessage','Envoyer'),(57,'sixth_section','Newsletter'),(58,'description_newsletter','Abonnez-vous à notre newsletter !'),(59,'btn_newsletter','Je m\'inscris !'),(60,'fourth_btn','Présentation');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,4 +320,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-11  9:17:56
+-- Dump completed on 2021-07-14 17:50:45
