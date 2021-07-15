@@ -4,7 +4,7 @@ const { connection } = require('../db-config');
 sectionsRouter.get('/', async (req, res) => {
   try {
     const [results] = await connection.query(
-      'SELECT name FROM sections ORDER BY place ASC'
+      'SELECT id, name, place FROM sections ORDER BY place ASC'
     );
     res.status(200).json(results);
   } catch (err) {
