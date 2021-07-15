@@ -267,7 +267,7 @@ DROP TABLE IF EXISTS `texts`;
 CREATE TABLE `texts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `fr` varchar(128) NOT NULL,
+  `fr` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb3;

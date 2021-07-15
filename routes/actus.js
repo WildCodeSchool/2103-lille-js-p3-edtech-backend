@@ -4,7 +4,7 @@ const { connection } = require('../db-config');
 actusRouter.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query(
-      'SELECT title, imgSrc, imgAlt, link, content, dateTime, isActive FROM actus ORDER BY dateTime DESC'
+      'SELECT id, title, imgSrc, imgAlt, link, content, dateTime, isActive FROM actus ORDER BY dateTime DESC'
     );
     res.status(200).json(rows);
   } catch (err) {

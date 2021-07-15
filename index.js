@@ -13,13 +13,13 @@ const externalLinksRouter = require('./routes/externalLinks');
 const colorsRouter = require('./routes/colors');
 const actusRouter = require('./routes/actus');
 const authRouter = require('./routes/auth');
-const { port, frontendUrl } = require('./db-config');
+const { port, frontendUrl, adminUrl } = require('./db-config');
 
 const app = express();
 
 app.use(express.json());
 app.use(passport.initialize());
-app.use(cors({ credentials: true, origin: frontendUrl }));
+app.use(cors({ credentials: true, origin: { frontendUrl, adminUrl } }));
 
 app.use('/texts', textsRouter);
 app.use('/images', imagesRouter);
