@@ -253,7 +253,7 @@ CREATE TABLE `slider` (
 
 LOCK TABLES `slider` WRITE;
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
-INSERT INTO `slider` VALUES (1,'Lorem ipsum','/img/slider/bureau1.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(2,'Lorem ipsum','/img/slider/bureau2.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(3,'Lorem ipsum','/img/slider/bureau3.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.');
+INSERT INTO `slider` VALUES (1,'Lorem ipsum 1','/img/slider/bureau1.jpeg','slide','1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(2,'Lorem ipsum 2','/img/slider/bureau2.jpeg','slide','2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(3,'Lorem ipsum 3','/img/slider/bureau3.jpeg','slide','3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,4 +320,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-15 11:13:58
+-- Dump completed on 2021-07-15 11:30:54
