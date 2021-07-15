@@ -84,7 +84,7 @@ CREATE TABLE `external_links` (
   `linkTo` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,11 +107,11 @@ DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `src` varchar(128) NOT NULL,
+  `src` varchar(512) NOT NULL,
   `alt` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'logo_header','/img/header/logo.png','logo'),(2,'picto_newsletter','/img/navBar/pictogrammes/Picto_Newsletter.png','picto_newsletter'),(3,'picto_facebook','/img/navBar/pictogrammes/Picto_Facebook.png','picto_facebook'),(4,'picto_linkedIn','/img/navBar/pictogrammes/Picto_Linkedin.png','picto_linkedIn'),(5,'picto_twitter','/img/navBar/pictogrammes/Picto_Twitter.png','picto_twitter'),(6,'logo_footer','/img/footer/Logo_EdTech_HdF_Typo.jpeg','picto_footer');
+INSERT INTO `images` VALUES (1,'logo_header','/img/header/logo.png','logo'),(2,'picto_newsletter','/img/navBar/pictogrammes/Picto_Newsletter.png','picto_newsletter'),(3,'picto_facebook','/img/navBar/pictogrammes/Picto_Facebook.png','picto_facebook'),(4,'picto_linkedIn','/img/navBar/pictogrammes/Picto_Linkedin.png','picto_linkedIn'),(5,'picto_twitter','/img/navBar/pictogrammes/Picto_Twitter.png','picto_twitter'),(6,'logo_footer','/img/footer/Logo_EdTech_HdF_Typo.jpeg','picto_footer'),(7,'img_map','https://images-ext-2.discordapp.net/external/axV4qu9QBHztGjzsXzkSSh7lXPuoN3Cvv4iQmidOUAE/%3Fw%3D1120%26h%3D490%26q%3D70%26fm%3Dwebp%26fit%3Dfill/https/images.france.fr/zeaejvyq9bhj/dAZLYQVKQoU6a8gUeU0Mi/02f9938c1c421a313d6b238f670d2ab6/article_ImP_Lille-NordFrance_1120x490.jpg','image_map');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `settings_carousel` (
 
 LOCK TABLES `settings_carousel` WRITE;
 /*!40000 ALTER TABLE `settings_carousel` DISABLE KEYS */;
-INSERT INTO `settings_carousel` VALUES (1,'slider_duration','1000'),(2,'slider_transitionDuration','500'),(3,'slider_infinite','true'),(4,'carousel_duration','4000'),(5,'items_number','4');
+INSERT INTO `settings_carousel` VALUES (1,'slider_duration','3500'),(2,'slider_transitionDuration','500'),(3,'slider_infinite','true'),(4,'carousel_duration','4000'),(5,'items_number','4');
 /*!40000 ALTER TABLE `settings_carousel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +253,7 @@ CREATE TABLE `slider` (
 
 LOCK TABLES `slider` WRITE;
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
-INSERT INTO `slider` VALUES (1,'Lorem ipsum 1','/img/slider/bureau1.jpeg','slide','1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(2,'Lorem ipsum 2','/img/slider/bureau2.jpeg','slide','2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(3,'Lorem ipsum 3','/img/slider/bureau3.jpeg','slide','3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.');
+INSERT INTO `slider` VALUES (1,'Lorem ipsum','/img/slider/bureau1.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(2,'Lorem ipsum','/img/slider/bureau2.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.'),(3,'Lorem ipsum','/img/slider/bureau3.jpeg','slide','Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quaerat necessitatibus voluptatem eos amet qui sit at a magnam nihil ullam numquam labore, accusantium ducimus est quo, debitis dolorum cumque.');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +267,7 @@ DROP TABLE IF EXISTS `texts`;
 CREATE TABLE `texts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tagname` varchar(64) NOT NULL,
-  `fr` varchar(45) NOT NULL,
+  `fr` varchar(128) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb3;
@@ -279,7 +279,7 @@ CREATE TABLE `texts` (
 
 LOCK TABLES `texts` WRITE;
 /*!40000 ALTER TABLE `texts` DISABLE KEYS */;
-INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...'),(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'adress_field1',''),(36,'adress_field2',''),(37,'adress_field3',''),(38,'adress_field4',''),(39,'isImgMapFirst','false'),(40,'btn_map','Lien vers la carte'),(54,'RGPD','J\'accepte de partager mes informations à l\'as'),(55,'contact_messageSent','Message envoyé !'),(56,'contact_sendMessage','Envoyer'),(57,'sixth_section','Newsletter'),(58,'description_newsletter','Abonnez-vous à notre newsletter !'),(59,'btn_newsletter','Je m\'inscris !'),(60,'fourth_btn','Présentation');
+INSERT INTO `texts` VALUES (1,'first_btn','Actualités'),(2,'second_btn','J\'adhère'),(3,'third_btn','Contact'),(4,'first_section','Cartographie des membres'),(5,'second_section','Membres'),(6,'third_section','Partenaires'),(7,'fourth_section','Actualités'),(8,'fifth_section','Contact'),(9,'description_map','Lorem ipsum dolor sit amet consectetur adipis'),(10,'cgu','CGU / Mentions légales'),(11,'date','©️2021'),(12,'first_input','Prénom *:'),(13,'second_input','Nom*:'),(14,'third_input','Structure :'),(15,'fourth_input','Numéro de téléphone :'),(16,'fifth_input','Adresse mail *:'),(17,'sixth_input','Message *:'),(19,'requirable_first_input','obligatoire'),(20,'requirable_second_input','obligatoire'),(21,'requirable_third_input','non obligatoire'),(28,'requirable_fourth_input','non obligatoire'),(29,'requirable_fifth_input','obligatoire'),(30,'requirable_sixth_input','obligatoire'),(31,'contact_catchPhrase','Lorem, ipsum dolor sit amet consectetur...'),(32,'edtechhdf_title','Edtech Hauts-de-France'),(33,'edtech_adress','165 Avenue de Bretagne'),(34,'edtech_city','59000 Lille'),(35,'adress_field1',''),(36,'adress_field2',''),(37,'adress_field3',''),(38,'adress_field4',''),(39,'isImgMapFirst','false'),(40,'btn_map','Lien vers la carte'),(54,'RGPD','J\'accepte de partager mes informations à l\'association edTech HdF.'),(55,'contact_messageSent','Message envoyé !'),(56,'contact_sendMessage','Envoyer'),(57,'sixth_section','Newsletter'),(58,'description_newsletter','Abonnez-vous à notre newsletter !'),(59,'btn_newsletter','Je m\'inscris !'),(60,'fourth_btn','Présentation');
 /*!40000 ALTER TABLE `texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,4 +320,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-15 10:43:05
+-- Dump completed on 2021-07-15 11:13:58
