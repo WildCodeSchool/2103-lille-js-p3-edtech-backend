@@ -9,12 +9,13 @@ const connection = mysql.createPool({
   database: process.env.DB_NAME,
 });
 
-const { SALTROUNDS, JWT_SECRET, FRONT_URL, PORT } = process.env;
+const { SALTROUNDS, JWT_SECRET, FRONT_URL, PORT, ADMIN_URL } = process.env;
 
 module.exports = {
   connection,
   saltRounds: SALTROUNDS,
   secretKey: JWT_SECRET,
   frontendUrl: FRONT_URL,
+  adminUrl: ADMIN_URL,
   port: PORT,
 };
