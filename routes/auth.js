@@ -46,7 +46,7 @@ authRouter.delete('/signup/:id', async (req, res) => {
   try {
     const [[resCount]] = await connection.query(sqlCount);
     if (resCount.data === 1) {
-      res.status(500).send('Error deleting an user');
+      res.status(409).send('Error deleting an user');
     } else {
       const [results] = await connection.query(sql, sqlValues);
 
