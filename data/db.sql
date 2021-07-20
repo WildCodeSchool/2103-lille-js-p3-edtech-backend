@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
 --
--- Host: localhost    Database: edtech
+-- Host: 127.0.0.1    Database: edtech
 -- ------------------------------------------------------
 -- Server version	8.0.25-0ubuntu0.20.04.1
 
@@ -58,7 +58,7 @@ CREATE TABLE `colors` (
   `color` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tag_name_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `colors` (
 
 LOCK TABLES `colors` WRITE;
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
-INSERT INTO `colors` VALUES (1,'navbar_text_color','#2c2875'),(2,'navbar_background_color','#FFFFFF'),(3,'header_text_color',NULL),(4,'header_background_color',NULL),(5,'slider_text_color','#FFFFFF'),(6,'slider_background_color','rgba(55, 106, 182, 0.664)'),(7,'map_background_color','#2c2875'),(8,'map_text_color','#FFFFFF'),(9,'map_button_background_color','#e61937'),(10,'map_button_text_color','#FFFFFF'),(11,'members_text_color','#2c2875'),(12,'members_background_color','#FFFFFF'),(13,'partners_text_color','#2c2875'),(14,'partners_background_color','#FFFFFF'),(15,'hdfTwitter_text_color','#FFFFFF'),(16,'hdfTwitter_background_color','#e61937'),(17,'contact_text_color','#FFFFFF'),(18,'contact_background_color','#2c2875'),(19,'footer_text_color','#FFFFFF'),(20,'footer_background_color','#1b175b'),(21,'contact_button_background_color','#e61937'),(22,'contact_button_text_color','#FFFFFF'),(23,'contact_button_background_color_inactive','#2aa11d'),(24,'contact_button_text_color_inactive','#FFFFFF'),(25,'contact_button_background_color_hover','#FF1919'),(26,'newsletter_background_color','#FFFFFF'),(27,'newsletter_text_color','#2c2875'),(28,'newsletter_button_background_color','#e61937'),(29,'newsletter_button_text_color','#FFFFFF'),(30,'actu_background_color','#2c2875'),(31,'actu_link_color','#FFFFFF'),(32,'accordion_background_color','#2c2875'),(33,'accordion_text_color','#FFFFFF');
+INSERT INTO `colors` VALUES (1,'navbar_text_color','#2c2875'),(2,'navbar_background_color','#FFFFFF'),(3,'header_text_color',NULL),(4,'header_background_color',NULL),(5,'slider_text_color','#FFFFFF'),(6,'slider_background_color','rgba(55, 106, 182, 0.664)'),(7,'map_background_color','#2c2875'),(8,'map_text_color','#FFFFFF'),(9,'map_button_background_color','#e61937'),(10,'map_button_text_color','#FFFFFF'),(11,'members_text_color','#2c2875'),(12,'members_background_color','#FFFFFF'),(13,'partners_text_color','#2c2875'),(14,'partners_background_color','#FFFFFF'),(15,'hdfTwitter_text_color','#FFFFFF'),(16,'hdfTwitter_background_color','#e61937'),(17,'contact_text_color','#FFFFFF'),(18,'contact_background_color','#2c2875'),(19,'footer_text_color','#FFFFFF'),(20,'footer_background_color','#1b175b'),(21,'contact_button_background_color','#e61937'),(22,'contact_button_text_color','#FFFFFF'),(23,'contact_button_background_color_inactive','#2aa11d'),(24,'contact_button_text_color_inactive','#FFFFFF'),(25,'contact_button_background_color_hover','#FF1919'),(26,'newsletter_background_color','#FFFFFF'),(27,'newsletter_text_color','#2c2875'),(28,'newsletter_button_background_color','#e61937'),(29,'newsletter_button_text_color','#FFFFFF'),(30,'actu_background_color','#2c2875'),(31,'actu_link_color','#FFFFFF'),(32,'accordion_background_color','#2c2875'),(33,'accordion_text_color','#FFFFFF'),(34,'contact_background_alert','#e61937'),(35,'contact_background_alert_bar','#FFFFFF'),(36,'contact_text_alert','#FFFFFF');
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,7 +147,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES (1,'tabuleo','/img/members/Tabuleo.png','tabuleo','https://www.tabuleo.com/'),(2,'orientoi','/img/members/Orientoi.jpg','orientoi','https://www.orientoi.fr/'),(3,'wild_code_school','/img/members/WildCodeSchool.png','wildcodeschool','https://www.wildcodeschool.com/fr-FR'),(4,'agence_dad','/img/members/Agencedad.jpg','agencedad','https://www.dad-agence.fr/'),(5,'cantoo_scribe','/img/members/CantooScribe.png','cantooscribe','https://www.cantoo.fr/'),(6,'edhec','/img/members/EDHEC.jpg','edhec','https://www.edhec.edu/fr');
+INSERT INTO `members` VALUES (1,'tabuleo','/img/members/Tabuleo.png','tabuleo','https://www.tabuleo.com/'),(2,'orientoi','/img/members/Orientoi.jpg','orientoi','https://www.orientoi.fr/'),(4,'agence_dad','/img/members/Agencedad.jpg','agencedad','https://www.dad-agence.fr/'),(5,'cantoo_scribe','/img/members/CantooScribe.png','cantooscribe','https://www.cantoo.fr/'),(6,'edhec','/img/members/EDHEC.jpg','edhec','https://www.edhec.edu/fr');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,4 +320,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-15 11:30:54
+-- Dump completed on 2021-07-20 10:24:16
