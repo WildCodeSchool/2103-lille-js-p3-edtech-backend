@@ -31,17 +31,27 @@ authRouter.post('/signup', async (req, res) => {
     const token = jwt.sign(req.body, secretKey);
     res.json({ user: req.body, token });
   } catch (err) {
-    res.status(400).send(err);
+    if (err.code === 'ER_DUP_ENTRY') {
+      res.status(409).send('This user already exists !');
+    }
+    res.status(500).send(err);
   }
 });
 
 authRouter.delete('/signup/:id', async (req, res) => {
   const { id } = req.params;
   const sql = 'DELETE FROM users WHERE id=?';
+  const sqlCount = 'SELECT COUNT(*) as data FROM users';
   const sqlValues = [id];
   try {
-    const [results] = await connection.query(sql, sqlValues);
-    res.json(results);
+    const [[resCount]] = await connection.query(sqlCount);
+    if (resCount.data === 1) {
+      res.status(409).send('Error deleting an user');
+    } else {
+      const [results] = await connection.query(sql, sqlValues);
+
+      res.status(204).json(results);
+    }
   } catch (err) {
     res.status(400).send(err);
   }
