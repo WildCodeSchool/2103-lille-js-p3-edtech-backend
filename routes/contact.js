@@ -1,5 +1,6 @@
 const contactRouter = require('express').Router();
 
+const Joi = require('joi');
 const nodemailer = require('nodemailer');
 
 const contactEmail = nodemailer.createTransport({
@@ -13,6 +14,10 @@ const contactEmail = nodemailer.createTransport({
 contactRouter.post('/', (req, res) => {
   const { firstname, lastname, structure, email, message, phoneNumber } =
     req.body;
+
+  const { error } = Joi.object({
+    email: Joi.string().email().max(255).required(),
+  }).validate({ email }, { abortEarly: false });
   const mail = {
     from: { firstname, lastname },
     to: process.env.CONTACT_EMAIL,
@@ -26,13 +31,17 @@ contactRouter.post('/', (req, res) => {
           <p>Message: ${message}</p>`,
   };
 
-  contactEmail.sendMail(mail, (err) => {
-    if (err) {
-      res.json({ status: 'Error' });
-    } else {
-      res.json({ status: 'Message sent' });
-    }
-  });
+  if (error) {
+    res.status(422).send({ validationErrors: error.details });
+  } else {
+    contactEmail.sendMail(mail, (err) => {
+      if (err) {
+        res.json({ status: 'Error' });
+      } else {
+        res.json({ status: 'Message sent' });
+      }
+    });
+  }
 });
 
 module.exports = contactRouter;
