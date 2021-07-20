@@ -111,7 +111,7 @@ CREATE TABLE `images` (
   `alt` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname_UNIQUE` (`tagname`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'logo_header','/img/header/logo.png','logo'),(2,'picto_newsletter','/img/navBar/pictogrammes/Picto_Newsletter.png','picto_newsletter'),(3,'picto_facebook','/img/navBar/pictogrammes/Picto_Facebook.png','picto_facebook'),(4,'picto_linkedIn','/img/navBar/pictogrammes/Picto_Linkedin.png','picto_linkedIn'),(5,'picto_twitter','/img/navBar/pictogrammes/Picto_Twitter.png','picto_twitter'),(6,'logo_footer','/img/footer/Logo_EdTech_HdF_Typo.jpeg','picto_footer'),(7,'img_map','https://images-ext-2.discordapp.net/external/axV4qu9QBHztGjzsXzkSSh7lXPuoN3Cvv4iQmidOUAE/%3Fw%3D1120%26h%3D490%26q%3D70%26fm%3Dwebp%26fit%3Dfill/https/images.france.fr/zeaejvyq9bhj/dAZLYQVKQoU6a8gUeU0Mi/02f9938c1c421a313d6b238f670d2ab6/article_ImP_Lille-NordFrance_1120x490.jpg','image_map');
+INSERT INTO `images` VALUES (1,'logo_header','/img/header/logo.png','logo'),(2,'picto_newsletter','/img/navBar/pictogrammes/Picto_Newsletter.png','picto_newsletter'),(3,'picto_facebook','/img/navBar/pictogrammes/Picto_Facebook.png','picto_facebook'),(4,'picto_linkedIn','/img/navBar/pictogrammes/Picto_Linkedin.png','picto_linkedIn'),(5,'picto_twitter','/img/navBar/pictogrammes/Picto_Twitter.png','picto_twitter'),(6,'logo_footer','/img/footer/Logo_EdTech_HdF_Typo.jpeg','picto_footer'),(7,'img_map','https://images-ext-2.discordapp.net/external/axV4qu9QBHztGjzsXzkSSh7lXPuoN3Cvv4iQmidOUAE/%3Fw%3D1120%26h%3D490%26q%3D70%26fm%3Dwebp%26fit%3Dfill/https/images.france.fr/zeaejvyq9bhj/dAZLYQVKQoU6a8gUeU0Mi/02f9938c1c421a313d6b238f670d2ab6/article_ImP_Lille-NordFrance_1120x490.jpg','image_map'),(8,'header_background_img','https://images.france.fr/zeaejvyq9bhj/dAZLYQVKQoU6a8gUeU0Mi/02f9938c1c421a313d6b238f670d2ab6/article_ImP_Lille-NordFrance_1120x490.jpg?w=1120&h=490&q=70&fm=webp&fit=fill','background_img');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,7 +147,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES (1,'tabuleo','/img/members/Tabuleo.png','tabuleo','https://www.tabuleo.com/'),(2,'orientoi','/img/members/Orientoi.jpg','orientoi','https://www.orientoi.fr/'),(4,'agence_dad','/img/members/Agencedad.jpg','agencedad','https://www.dad-agence.fr/'),(5,'cantoo_scribe','/img/members/CantooScribe.png','cantooscribe','https://www.cantoo.fr/'),(6,'edhec','/img/members/EDHEC.jpg','edhec','https://www.edhec.edu/fr');
+INSERT INTO `members` VALUES (1,'tabuleo','/img/members/Tabuleo.png','tabuleo','https://www.tabuleo.com/'),(2,'orientoi','/img/members/Orientoi.jpg','orientoi','https://www.orientoi.fr/'),(3,'wild_code_school','/img/members/WildCodeSchool.png','wildcodeschool','https://www.wildcodeschool.com/fr-FR'),(4,'agence_dad','/img/members/Agencedad.jpg','agencedad','https://www.dad-agence.fr/'),(5,'cantoo_scribe','/img/members/CantooScribe.png','cantooscribe','https://www.cantoo.fr/'),(6,'edhec','/img/members/EDHEC.jpg','edhec','https://www.edhec.edu/fr');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,4 +320,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-20 10:24:16
+-- Dump completed on 2021-07-20 14:06:08
